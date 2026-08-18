@@ -11,6 +11,8 @@
 
 #include <memory>
 
+#include <dinrail/IJoypadControl.h>
+
 #include <yarp/dev/DeviceDriver.h>
 #include <yarp/dev/IJoypadController.h>
 #include <yarp/os/PeriodicThread.h>
@@ -25,7 +27,8 @@ namespace yarp {
 class yarp::dev::KeyboardJoypad : public yarp::dev::DeviceDriver,
     public yarp::os::PeriodicThread,
     public yarp::dev::IService,
-    public yarp::dev::IJoypadController
+    public yarp::dev::IJoypadController,
+    public dinrail::IJoypadControl
 {
 public:
     KeyboardJoypad();
@@ -60,6 +63,10 @@ public:
     virtual bool getAxis(unsigned int axis_id, double& value) override;
     virtual bool getStick(unsigned int stick_id, yarp::sig::Vector& value, JoypadCtrl_coordinateMode coordinate_mode) override;
     virtual bool getTouch(unsigned int touch_id, yarp::sig::Vector& value) override;
+
+    // dinrail::IJoypadControl reconnect support (no-op for the keyboard backend)
+    virtual bool prepareForReconnect() override;
+    virtual bool consumeDisconnectEvent() override;
 
 private:
 

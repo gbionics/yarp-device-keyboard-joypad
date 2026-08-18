@@ -37,6 +37,7 @@ target_sources(yarp_keyboard-joypad
 
 target_link_libraries(yarp_keyboard-joypad
   PRIVATE
+    dinrail::dinrail
     YARP::YARP_os
     YARP::YARP_sig
     YARP::YARP_dev

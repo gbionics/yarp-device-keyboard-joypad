@@ -5,7 +5,3 @@
 # BSD-2-Clause license. See the accompanying LICENSE file for details.
 
 add_subdirectory(keyboard-joypad)
-
-if(dinrail_FOUND)
-	add_subdirectory(dr-keyboard-joypad)
-endif()

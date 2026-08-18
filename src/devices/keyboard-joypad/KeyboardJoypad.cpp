@@ -1601,3 +1601,13 @@ bool yarp::dev::KeyboardJoypad::getTouch(unsigned int /*touch_id*/, yarp::sig::V
     yCError(KEYBOARDJOYPAD) << "This device does not consider touch surfaces.";
     return false;
 }
+
+bool yarp::dev::KeyboardJoypad::prepareForReconnect()
+{
+    return true;
+}
+
+bool yarp::dev::KeyboardJoypad::consumeDisconnectEvent()
+{
+    return false;
+}
