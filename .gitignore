@@ -13,3 +13,8 @@ build_wsl/*
 # Visual Studio
 .vs/
 CmakeSettings.json
+
+# pixi
+pixi.lock
+.build/
+.pixi/
