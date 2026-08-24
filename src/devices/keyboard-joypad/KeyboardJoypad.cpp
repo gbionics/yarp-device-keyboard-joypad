@@ -1602,12 +1602,13 @@ bool yarp::dev::KeyboardJoypad::getTouch(unsigned int /*touch_id*/, yarp::sig::V
     return false;
 }
 
-bool yarp::dev::KeyboardJoypad::prepareForReconnect()
+bool yarp::dev::KeyboardJoypad::reconnect()
 {
     return true;
 }
 
-bool yarp::dev::KeyboardJoypad::consumeDisconnectEvent()
+bool yarp::dev::KeyboardJoypad::getLastEvent(dinrail::JoypadDeviceEvent& event)
 {
+    event = dinrail::JoypadDeviceEvent::NoEvent;
     return false;
 }

@@ -65,8 +65,8 @@ public:
     virtual bool getTouch(unsigned int touch_id, yarp::sig::Vector& value) override;
 
     // dinrail::IJoypadControl reconnect support (no-op for the keyboard backend)
-    virtual bool prepareForReconnect() override;
-    virtual bool consumeDisconnectEvent() override;
+    virtual bool reconnect() override;
+    virtual bool getLastEvent(dinrail::JoypadDeviceEvent& event) override;
 
 private:
 
