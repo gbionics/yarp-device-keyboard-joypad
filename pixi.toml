@@ -49,8 +49,6 @@ glfw = "*"
 glew = "*"
 imgui = "*"
 
-dinrail = { git = "https://github.com/gbionics/dinrail.git", rev = "2ff2ae988a7ef01f7ec61ac1be91710d8d6813c2" }
-
 [target.linux.dependencies]
 libgl-devel = "*"
 vulkan-headers = "*"
