@@ -79,3 +79,10 @@ ycm-cmake-modules = "*"
 libsharedlibpp = "*"
 cli11 = "*"
 spdlog = "*"
+
+[dependencies.dinrail.package.build.config]
+extra-args = [
+    "-DDINRAIL_USES_YARP:BOOL=OFF",
+    "-DBUILD_TESTING:BOOL=OFF",
+    "-DCMAKE_CXX_SCAN_FOR_MODULES:BOOL=OFF"
+]
