@@ -48,13 +48,11 @@ ycm-cmake-modules = "*"
 glfw = "*"
 glew = "*"
 imgui = "*"
+libvulkan-headers = "*"
+libvulkan-loader = "*"
 
 [target.linux.dependencies]
 libgl-devel = "*"
-vulkan-headers = "*"
-
-[target.osx.dependencies]
-libvulkan-headers = "*"
 
 # dinrail is not available on conda-forge, so depend on source.
 # Furthermore, we redefined the metadata as we want to compile without YARP support,
