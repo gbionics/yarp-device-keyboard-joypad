@@ -50,7 +50,8 @@ glew = "*"
 imgui = "*"
 
 # dinrail is not available on conda-forge, so depend on source.
-dinrail = { git = "https://github.com/gbionics/dinrail.git", rev = "c961787362c5174503bc9668b2dca5581035425b" }
+dinrail = { git = "https://github.com/gbionics/dinrail.git", rev = "b03564acbabb8e99285b3640d8e4eacf93758e9f" }
 
 [target.linux.dependencies]
 libgl-devel = "*"
+vulkan-headers = "*"
