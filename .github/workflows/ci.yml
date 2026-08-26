@@ -2,11 +2,6 @@ name: C++ CI Workflow with pixi dependencies
 
 on:
   workflow_dispatch:
-    inputs:
-      delete_pixi_lock:
-        description: 'If true, delete pixi.lock, to test against the latest version of dependencies.'
-        required: true
-        default: 'false'
   push:
   pull_request:
   schedule:
@@ -25,12 +20,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v6
-
-    - name: Delete pixi.lock on scheduled jobs or if delete_pixi_lock is true
-      if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && github.event.inputs.delete_pixi_lock == 'true')
-      shell: bash
-      run: |
-        rm pixi.lock
 
     - uses: prefix-dev/setup-pixi@v0.9.4
       with:
