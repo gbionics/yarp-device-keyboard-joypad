@@ -50,37 +50,7 @@ glew = "*"
 imgui = "*"
 libvulkan-headers = "*"
 libvulkan-loader = "*"
+libdinrail = "*"
 
 [target.linux.dependencies]
 libgl-devel = "*"
-
-# dinrail is not available on conda-forge, so depend on source.
-# Furthermore, we redefined the metadata as we want to compile without YARP support,
-# to workaround https://github.com/gbionics/yarp-device-keyboard-joypad/pull/13#issuecomment-5406943040
-# Drop this once https://github.com/conda-forge/staged-recipes/pull/34241 is merged
-[dependencies.dinrail]
-git = "https://github.com/gbionics/dinrail.git"
-rev = "2ff2ae988a7ef01f7ec61ac1be91710d8d6813c2"
-
-# This is an inline replacement for Dinrail's [package] definition.
-[dependencies.dinrail.package]
-version = "0.1.0"
-description = "A lightweight library for robot device abstractions"
-
-[dependencies.dinrail.package.build]
-backend = { name = "pixi-build-cmake", version = "*" }
-
-[dependencies.dinrail.package.build-dependencies]
-ycm-cmake-modules = "*"
-
-[dependencies.dinrail.package.host-dependencies]
-libsharedlibpp = "*"
-cli11 = "*"
-spdlog = "*"
-
-[dependencies.dinrail.package.build.config]
-extra-args = [
-    "-DDINRAIL_USES_YARP:BOOL=OFF",
-    "-DBUILD_TESTING:BOOL=OFF",
-    "-DCMAKE_CXX_SCAN_FOR_MODULES:BOOL=OFF"
-]
